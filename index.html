@@ -6,11 +6,11 @@
     <title>Pirate Arena News</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body data-page="index">
     <header>
         <nav>
             <div class="nav-left">
@@ -21,9 +21,9 @@
             </div>
             <div class="nav-right">
                 <div class="search-container">
-                                    <input type="text" id="search-input" placeholder="Search...">
-                                    <button id="search-button" class="search-button">Search</button>
-                                </div>
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <button id="search-button" class="search-button">Search</button>
+                </div>
                 <div class="hamburger-menu">
                     <span class="hamburger-icon">&#9776;</span>
                 </div>
@@ -31,14 +31,14 @@
             <div class="mobile-menu">
                 <a href="/newsarchive" class="mobile-news-archive">News Archive</a>
                 <div class="mobile-search-container">
-                                    <input type="text" id="mobile-search-input" placeholder="Search...">
-                                    <button id="mobile-search-button" class="search-button">Search</button>
-                                </div>
+                    <input type="text" id="mobile-search-input" placeholder="Search...">
+                    <button id="mobile-search-button" class="search-button">Search</button>
+                </div>
             </div>
         </nav>
     </header>
     <main>
-        <section class="hero">
+        <section class="headline">
             <div class="container">
                 <h1>Pirate Arena News</h1>
                 <p>Check out the latest News and Information regarding Pirate Arena. Ranging from Character Releases, New Features,
@@ -46,34 +46,16 @@
                 </p>
             </div>
         </section>
-        <section class="articles">
+        <section class="articles" data-role="index-posts">
             <div class="container">
-                <div class="article-featured">
-                    <a href="/roadmapclosedbeta">
-                    <div class="article-small">
-                        <div class="article-image-container">
-                            <img src="https://i.imgur.com/W9Xs4Yl.png">
-                            <span class="category">Road Map</span>
-                            <span class="date">8/5/2025</span>
-                        </div>
-                        <h3>Pirate Arena Road Map</h3>
-                    </div>
-                    </a>
+                <div class="article-featured" id="featured-posts" aria-live="polite"></div>
+                <div class="article-grid" id="recent-posts" aria-live="polite"></div>
+                <div class="empty-state" id="index-empty-state" hidden>
+                    <p>No news posts yet. Check back soon!</p>
                 </div>
-                <!--
-                <div class="article-grid">
-                    <div class="article-small">
-                        <div class="article-image-container">
-                            <img src="https://i.imgur.com/Jk8kF2D.png">
-                            <span class="category">Test</span>
-                            <span class="date">Test</span>
-                        </div>
-                        <h3>A Beginner's Guide</h3>
-                    </div>
-                </div>
-                -->
             </div>
         </section>
     </main>
 </body>
 </html>
+

@@ -3,53 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pirate Arena News Archive</title>
+    <title>Pirate Arena News Post</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
-<body data-page="archive">
+<body data-page="post">
     <header>
         <nav>
             <div class="nav-left">
-                <a href="/newsarchive" class="mobile-news-archive">News Archive</a>
+                <a href="/newsarchive" class="news-archive">News Archive</a>
             </div>
             <div class="nav-center">
                 <a href="/index" class="logo">Pirate-Arena</a>
             </div>
             <div class="nav-right">
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search...">
-                    <button id="search-button" class="search-button">Search</button>
-                </div>
                 <div class="hamburger-menu">
                     <span class="hamburger-icon">&#9776;</span>
                 </div>
             </div>
             <div class="mobile-menu">
                 <a href="/newsarchive" class="mobile-news-archive">News Archive</a>
-                <div class="mobile-search-container">
-                    <input type="text" id="mobile-search-input" placeholder="Search...">
-                    <button id="mobile-search-button" class="search-button">Search</button>
-                </div>
             </div>
         </nav>
     </header>
     <main>
-        <section class="headline">
+        <section class="blog-post" data-role="post-detail">
             <div class="container">
-                <h1>Pirate Arena News Archive</h1>
-            </div>
-        </section>
-        <section class="articles" data-role="archive-posts">
-            <div class="container">
-                <div class="article-featured" id="archive-featured" aria-live="polite"></div>
-                <div class="article-grid" id="archive-posts" aria-live="polite"></div>
-                <div class="empty-state" id="archive-empty-state" hidden>
-                    <p>No posts match your filters yet.</p>
-                </div>
+                <article class="blog-content" id="post-wrapper">
+                    <div class="post-loading" id="post-loading">Loading post...</div>
+                    <div class="post-error" id="post-error" hidden>
+                        <p>We couldn't find that post. It may have been moved or deleted.</p>
+                    </div>
+                    <div class="blogheadimage mx-n3" id="post-header-media" hidden></div>
+                    <div class="blog-header" id="post-meta" hidden>
+                        <span class="blog-tag" id="post-category"></span>
+                        <span class="blog-date" id="post-date"></span>
+                    </div>
+                    <h1 class="blog-title" id="post-title" hidden></h1>
+                    <div class="blog-body" id="post-body" hidden></div>
+                </article>
             </div>
         </section>
     </main>

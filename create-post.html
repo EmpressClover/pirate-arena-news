@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Pirate Arena Post</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body data-page="create-post">
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="/newsarchive" class="mobile-news-archive">News Archive</a>
+            </div>
+            <div class="nav-center">
+                <a href="/index" class="logo">Pirate-Arena</a>
+            </div>
+            <div class="nav-right">
+                <div class="hamburger-menu">
+                    <span class="hamburger-icon">&#9776;</span>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <a href="/newsarchive" class="mobile-news-archive">News Archive</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="create-blog">
+            <div class="container">
+                <h1>Create a Post</h1>
+                <p>Provide the details for your news entry. Fields marked with an asterisk are required.</p>
+                <form id="create-post-form" class="create-post-form" autocomplete="off">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="post-password">Admin Password *</label>
+                            <input type="password" id="post-password" placeholder="Enter the admin password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="post-title">Post Title *</label>
+                            <input type="text" id="post-title" placeholder="Pirate Arena Update" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="post-slug">Slug (optional)</label>
+                            <input type="text" id="post-slug" placeholder="pirate-arena-update">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-category">Category</label>
+                            <input type="text" id="post-category" placeholder="Road Map">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-display-date">Display Date</label>
+                            <input type="text" id="post-display-date" placeholder="August 5, 2025">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-published-at">Published At (ISO)</label>
+                            <input type="datetime-local" id="post-published-at">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-thumbnail">Thumbnail Image URL</label>
+                            <input type="url" id="post-thumbnail" placeholder="https://">
+                        </div>
+                        <div class="form-group">
+                            <label for="post-header-image">Header Image URL</label>
+                            <input type="url" id="post-header-image" placeholder="https://">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-summary">Summary</label>
+                        <textarea id="post-summary" rows="3" placeholder="One-line teaser shown on listing pages"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content-editor">Post Content *</label>
+                        <div class="editor-mode-toggle" role="tablist" aria-label="Editor mode">
+                            <button type="button" class="editor-mode-button is-active" data-editor-mode="rich" aria-pressed="true">Live Editor</button>
+                            <button type="button" class="editor-mode-button" data-editor-mode="plain" aria-pressed="false">Plain Text</button>
+                        </div>
+                        <div class="editor-toolbar" id="editor-toolbar" role="toolbar" aria-label="Formatting options">
+                            <div class="editor-toolbar-group">
+                                <button type="button" class="editor-control" data-editor-command="bold" title="Bold (Ctrl+B)"><span>Bold</span></button>
+                                <button type="button" class="editor-control" data-editor-command="italic" title="Italic (Ctrl+I)"><span>Italic</span></button>
+                                <span class="editor-toolbar-separator" aria-hidden="true"></span>
+                                <button type="button" class="editor-control" data-editor-command="justifyLeft" title="Align left"><span>Left</span></button>
+                                <button type="button" class="editor-control" data-editor-command="justifyCenter" title="Align center"><span>Center</span></button>
+                                <button type="button" class="editor-control" data-editor-command="justifyRight" title="Align right"><span>Right</span></button>
+                                <span class="editor-toolbar-separator" aria-hidden="true"></span>
+                                <button type="button" class="editor-control" data-editor-insert="image" title="Insert image URL"><span>Image</span></button>
+                                <button type="button" class="editor-control" data-editor-insert="video" title="Insert video embed"><span>Video</span></button>
+                                <button type="button" class="editor-control" id="toc-btn" title="Insert table of contents">ToC</button>
+                            </div>
+                            <button type="button" class="editor-control editor-control-secondary" id="clear-btn">Clear</button>
+                        </div>
+                        <div id="post-content-editor" class="rich-text-editor" contenteditable="true" aria-required="true" aria-label="Post content editor" data-placeholder="Start writing your post..."></div>
+                        <textarea id="post-content-plain" class="plain-text-editor" spellcheck="false" hidden></textarea>
+                        <textarea id="post-content" hidden required></textarea>
+                    </div>
+                    <div class="balance-builder" id="balance-builder">
+                        <h2>Balance Change Builder</h2>
+                        <p class="balance-builder-description">Generate a styled balance changelog section without hand-writing HTML. Fill out the character details and individual ability adjustments, then insert the section into the editor.</p>
+                        <div class="balance-builder-grid">
+                            <div class="form-group">
+                                <label for="balance-character-name">Character Name *</label>
+                                <input type="text" id="balance-character-name" placeholder="Elite Shinobi">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-character-subtitle">Character Subtitle</label>
+                                <input type="text" id="balance-character-subtitle" placeholder="Elite Rank Specialist">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-character-image">Character Image URL</label>
+                                <input type="url" id="balance-character-image" placeholder="https://">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-section-title">Section Title</label>
+                                <input type="text" id="balance-section-title" placeholder="Character Skills">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-stat-one-value">Stat Block #1 Value</label>
+                                <input type="text" id="balance-stat-one-value" placeholder="16,862">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-stat-one-label">Stat Block #1 Label</label>
+                                <input type="text" id="balance-stat-one-label" placeholder="Wins (59.63%)">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-stat-two-value">Stat Block #2 Value</label>
+                                <input type="text" id="balance-stat-two-value" placeholder="28,277">
+                            </div>
+                            <div class="form-group">
+                                <label for="balance-stat-two-label">Stat Block #2 Label</label>
+                                <input type="text" id="balance-stat-two-label" placeholder="Total Matches">
+                            </div>
+                        </div>
+                        <div class="balance-abilities-header">
+                            <h3>Ability Adjustments</h3>
+                            <p>Add one entry per ability or skill that changed.</p>
+                        </div>
+                        <div class="balance-abilities-list" id="balance-abilities-list"></div>
+                        <div class="balance-builder-actions">
+                            <button type="button" id="add-balance-ability" class="balance-builder-button">Add Ability</button>
+                            <button type="button" id="insert-balance-section" class="balance-builder-button balance-builder-button-primary">Insert Balance Section</button>
+                        </div>
+                        <div class="form-feedback" id="balance-feedback" role="alert" aria-live="polite"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Publish Post</button>
+                    </div>
+                    <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite"></div>
+                </form>
+                <div class="preview-container" id="preview-container" hidden>
+                    <h2>Content Preview</h2>
+                    <div class="blog-body" id="preview-body"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
