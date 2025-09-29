@@ -1,8 +1,10 @@
 {
   "cleanUrls": true,
-  "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/server.js" },
-    { "source": "/(.*)", "destination": "/server.js" }
+  "redirects": [
+    {
+      "source": "/:path(.+).html",
+      "destination": "/:path",
+      "permanent": true
+    }
   ]
 }
