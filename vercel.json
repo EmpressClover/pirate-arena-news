@@ -1,10 +1,12 @@
 {
-  "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/:path(.+).html",
-      "destination": "/:path",
-      "permanent": true
-    }
-  ]
+"cleanUrls": true,
+"builds": [
+{ "src": "server.js", "use": "@vercel/node" }
+],
+"routes": [
+{ "src": "^/api/.", "dest": "server.js" },
+{ "src": "^/(index|newsarchive|create-post|post)$", "dest": "server.js" },
+{ "src": "^/$", "dest": "server.js" },
+{ "src": "^(?!/api/).", "dest": "server.js" }
+]
 }
