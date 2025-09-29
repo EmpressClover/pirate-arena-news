@@ -1,8 +1,8 @@
 {
-"cleanUrls": true,
 "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-"rewrites": [
-{ "source": "/api/(.*)", "destination": "/server.js" },
-{ "source": "/(.*)", "destination": "/server.js" }
+"routes": [
+{ "src": "/api/.", "dest": "/server.js" },
+{ "src": "/(post|index|newsarchive|create-post)$", "dest": "/server.js" },
+{ "src": "/(.)", "dest": "/server.js" }
 ]
 }
