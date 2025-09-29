@@ -3,10 +3,10 @@
 "builds": [
 { "src": "server.js", "use": "@vercel/node" }
 ],
-"routes": [
-{ "src": "^/api/.", "dest": "server.js" },
-{ "src": "^/(index|newsarchive|create-post|post)$", "dest": "server.js" },
-{ "src": "^/$", "dest": "server.js" },
-{ "src": "^(?!/api/).", "dest": "server.js" }
+"rewrites": [
+{ "source": "/api/(.)", "destination": "/server.js" },
+{ "source": "/(index|newsarchive|create-post|post)", "destination": "/server.js" },
+{ "source": "/", "destination": "/server.js" },
+{ "source": "/(.)", "destination": "/server.js" }
 ]
 }
