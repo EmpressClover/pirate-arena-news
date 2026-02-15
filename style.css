@@ -432,6 +432,7 @@ html {
 
 .blog-body {
     margin-top: 30px;
+    font-size: 20px;
 }
 
 .blog-body p {
@@ -840,15 +841,17 @@ html {
     margin: 40px 0;
     border: 1px solid #000000;
     overflow: hidden;
-    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
     background-color: #ffffff00;
 }
 
 .balance-character-header {
-    padding: 32px 28px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 5px;
     background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
     position: relative;
 }
+
 
 .balance-character-header::after {
     content: '';
@@ -898,6 +901,13 @@ html {
     letter-spacing: 1px;
 }
 
+.showcase-character-rank {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
 .balance-stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -924,6 +934,26 @@ html {
     text-transform: uppercase;
     letter-spacing: 0.7px;
     color: #6b7280;
+}
+
+.showcase-stats-grid {
+    grid-template-columns: repeat(2, minmax(110px, 180px));
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.showcase-stat-item {
+    padding: 10px 12px;
+}
+
+.showcase-stat-item .balance-stat-value {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.showcase-stat-item .balance-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.6px;
 }
 
 .balance-abilities-section {
@@ -977,21 +1007,51 @@ html {
     font-weight: 600;
     font-style: normal;
     font-size: 18px;
-    color: #1f2937;
+    color: #050505;
     margin-bottom: 8px;
 }
 
 .balance-ability-description {
     font-family: "Inter", sans-serif;
     font-size: 14px;
-    color: #4b5563;
+    color: #000000;
     line-height: 1.6;
+}
+
+.balance-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.balance-meta-row .energy-squares {
+    position: relative;
+    top: -4px;
+}
+
+.balance-meta-label {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+    min-width: 52px;
+}
+
+.showcase-abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.showcase-abilities-grid .balance-ability-item {
+    margin-bottom: 0;
 }
 
 .balance-highlight {
     display: inline-flex;
     align-items: center;
-    border-radius: 999px;
     padding: 2px 8px;
     font-size: 12px;
     font-weight: 600;
@@ -1027,6 +1087,10 @@ html {
     .balance-profile-top {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .showcase-abilities-grid {
+        grid-template-columns: 1fr;
     }
 
     .balance-ability-item {
@@ -1302,6 +1366,7 @@ html {
     font-size: 18px;
     font-weight: 700;
     color: #111827;
+        margin-bottom: 40px;
 }
 
 .skill-change-block {
@@ -1338,13 +1403,20 @@ html {
     text-align: left;
     font-weight: 600;
     color: #374151;
+    width: 120px;
+    min-width: 120px;
+    white-space: normal;
+    overflow-wrap: normal;
+}
+
+.skill-change-table td {
+    overflow-wrap: anywhere;
 }
 
 .skill-change-text-left {
     background-color: #fff1f2;
     color: #9f1239;
     font-weight: 600;
-    text-decoration: line-through;
 }
 
 .skill-change-text-right {
@@ -1404,7 +1476,6 @@ html {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 8px;
 }
 
 .class-badge {
@@ -1415,7 +1486,6 @@ html {
     font-size: 12px;
     font-weight: 600;
     font-family: "Inter", sans-serif;
-    border-radius: 999px;
     background-color: #f3f4f6;
     color: #111827;
 }
@@ -1464,6 +1534,57 @@ html {
     background-color: #fff1f2;
     color: #9f1239;
     font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+    .skill-change-block {
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-areas:
+            "old old-table"
+            "arrow arrow"
+            "new new-table";
+        column-gap: 14px;
+        row-gap: 14px;
+        align-items: start;
+    }
+
+    .skill-change-block > .skill-change-side:first-child {
+        grid-area: old;
+    }
+
+    .skill-change-block > .skill-change-table:first-of-type {
+        grid-area: old-table;
+    }
+
+    .skill-change-block > .skill-change-arrow {
+        grid-area: arrow;
+        justify-self: center;
+        transform: rotate(90deg);
+    }
+
+    .skill-change-block > .skill-change-table:last-of-type {
+        grid-area: new-table;
+    }
+
+    .skill-change-block > .skill-change-side:last-child {
+        grid-area: new;
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-change-block {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "old"
+            "old-table"
+            "arrow"
+            "new"
+            "new-table";
+    }
+
+    .skill-change-block > .skill-change-side {
+        justify-self: center;
+    }
 }
 
 .preview-container {
