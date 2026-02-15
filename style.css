@@ -432,7 +432,8 @@ html {
 
 .blog-body {
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .blog-body p {
@@ -1428,10 +1429,6 @@ html {
 .skill-change-text-full {
     display: inline-block;
     padding: 2px 4px;
-}
-
-.energy-glow .skill-change-image {
-    box-shadow: 0 0 10px var(--energy-glow);
 }
 
 .energy-squares {
